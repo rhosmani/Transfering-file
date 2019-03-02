@@ -73,13 +73,15 @@ int main(int argc, char *argv[]) {
 
 	printf("\nCommencing CPU Benchmark...\n");
 
+	printf("\nPrecisionType: %s \t Thread #: %d \n", (*inp).precisionType, (*inp).threadCount );
+
 	double total_time_taken[EXPERIMENT_FREQUENCY];
 	double processor_speed[EXPERIMENT_FREQUENCY];
 
 
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
 	{
-		printf("Experiment Number: %d\n",i+1);
+		printf("\nExperiment Number: %d\n",i+1);
 		struct timeval process_start_time, process_end_time;
 		pthread_t threadIdList[(*inp).threadCount];
 		gettimeofday(&process_start_time, NULL);
@@ -110,14 +112,14 @@ int main(int argc, char *argv[]) {
 
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
-		th_Gops = 147.20; 
+		th_Gops = 294.4; 
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
-		th_Gops = 294.4;
+		th_Gops = 147.2;
 	}
 
-	efficiency = avg_processor_speed * 100 / th_Gops;
+	efficiency = (avg_processor_speed / th_Gops) * 100;
 
 	printf("PrecisionType \t\t ThreadCount \t\t AverageProcessorSpeed\n");
 	printf("%s\t\t %d\t\t\t %.2f\t\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed);
