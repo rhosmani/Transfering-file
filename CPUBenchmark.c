@@ -7,8 +7,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define ITERATION1 1000000
-#define ITERATION2 1000000
+#define ITERATION1 1000000000
+#define ITERATION2 1000
 #define EXPERIMENT_FREQUENCY 3
 
 struct stat st = {0};
@@ -34,7 +34,7 @@ void *computeArithmeticOperations(void *param)
 			float total = 1.111;
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + a + b - c * d + e - f * g - h + j * k  ;
+				total = total + a + b - c + d + e - f + g - h + j - k  ;
 			}
 		}
 	}
@@ -45,7 +45,7 @@ void *computeArithmeticOperations(void *param)
 			double total = 1.2131;
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + aa + bb - cc * dd + ee - ff * gg - hh + jj * kk  ;
+				total = total + aa + bb - cc + dd + ee - ff + gg - hh + jj * kk  ;
 			}
 		}
 	}
