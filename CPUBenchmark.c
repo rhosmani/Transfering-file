@@ -133,7 +133,7 @@ int main(int argc, char *argv[]) {
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
 	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed, th_Gops, efficiency);
-	fwrtie(outputSTR, 1, strlen(outputSTR), outputFilePointer);
+	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
 	return 0;
