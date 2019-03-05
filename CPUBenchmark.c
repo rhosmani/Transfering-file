@@ -27,25 +27,27 @@ void *computeArithmeticOperations(void *param)
 	struct InputParameters *inp = (struct InputParameters *) param;
 	long long int total_iterations = (long long int) ITERATION1 / (10 * (*inp).threadCount);
 
+	float total1 = 1.111;
+	double total2 = 1.111;
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
 		for (int j = 0; j < ITERATION2; j++)
 		{
-			float total = 1.111;
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + a + b - c + d + e - f + g - h + j - k  ;
+				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
 			}
 		}
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
+		total2 = 1.2131;
 		for (int j = 0; j < ITERATION2; j++)
 		{
-			double total = 1.2131;
+			
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + aa + bb - cc + dd + ee - ff + gg - hh + jj * kk  ;
+				total2 = (double)total2 + aa + bb - cc + dd + ee - ff + gg - hh + jj * kk  ;
 			}
 		}
 	}
@@ -131,7 +133,7 @@ int main(int argc, char *argv[]) {
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
 	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed, th_Gops, efficiency);
-	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
+	fwrtie(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
 	return 0;
