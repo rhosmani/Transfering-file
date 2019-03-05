@@ -22,29 +22,23 @@ struct InputParameters
 void *computeArithmeticOperations(void *param)
 {
 	struct InputParameters *inp = (struct InputParameters *) param;
-	long long int total_iterations = (long long int) ITERATION1 / (8 * (*inp).threadCount);
+	long long int total_iterations = (long long int) ITERATION1 / (10 *inp).threadCount); 
 
 	__m256 set1 = _mm256_set_ps(2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0);
 	__m256 set2 = _mm256_set_ps(1.0, 3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0);
-	__m256 set3 = _mm256_set_ps(1.1, 2.1);
-	__m256 set4 = _mm256_set_ps(8.3, 9.3);
+	__m256 result;
 
-	__m256 result1, result2;
+	__m256d set1d = _mm256_set_pd(2.21, 26.4, 214.4, 46.4);
+	__m256d set2d = _mm256_set_pd(65.1, 55.4, 15.1, 25.5);
+	__m256d resultd;
 
-	__m256d set1d = _mm256_set_pd(2.21, 26.4, 214.4, 46.4, 4.16, 9.3, 47.4, 785.44);
-	__m256d set2d = _mm256_set_pd(65.1, 55.4, 15.1, 25.5, 669.4, 464.0, 99.0, 45.55);
-	__m256d set3d = _mm256_set_pd(1.221, 211.1);
-	__m256d set4d = _mm256_set_pd(81.3, 9.333);
-
-	__m256d result1d, result2d;
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
 		for (int j = 0; j < ITERATION2; j++)
 		{
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				result1 = _mm256_add_ps(set1, set2);
-				result2 = _mm256_add_ps(set3, set4);
+				result = _mm256_add_ps(set1, set2);
 			}
 		}
 
@@ -56,8 +50,7 @@ void *computeArithmeticOperations(void *param)
 
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				result1d = _mm256_add_pd(set1d, set2d);
-				result2d = _mm256_add_pd(set3d, set4d);
+				resultd = _mm256_add_pd(set1d, set2d);
 			}
 		}
 	}
