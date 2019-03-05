@@ -39,7 +39,7 @@ void *computeArithmeticOperations(void *param)
 			{
 				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
 			}
-			totalf[i%((*inp).threadCount)] = total1;
+			totalf[j%((*inp).threadCount)] = total1;
 		}
 		
 	}
@@ -55,7 +55,7 @@ void *computeArithmeticOperations(void *param)
 			}
 		}
 		totald = total2;
-		totalf[i%((*inp).threadCount)] = total1;
+		totalf[j%((*inp).threadCount)] = total1;
 	}
 	pthread_exit(NULL);
 	return NULL;
