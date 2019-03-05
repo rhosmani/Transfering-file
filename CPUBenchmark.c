@@ -22,7 +22,7 @@ float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, 
 double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
 
 float totalf = 0.0;
-double totald 0.00; 
+double totald = 0.00; 
 
 void *computeArithmeticOperations(void *param)
 {
