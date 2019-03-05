@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
 	else
 	{
-		printf("Error: Insufficient input paraments. Specify Precision Type followed by Thread Count.\n Example: CPUBenchmark SP 2\n");
+		printf("Error: Insufficient input paraments. Specify Precision Type followed by Thread Count.\n Example: CPUBenchmark SP 1\n");
 		exit(1);
 	}
 

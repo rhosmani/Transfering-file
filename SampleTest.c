@@ -7,8 +7,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define ITERATION1 1000000
-#define ITERATION2 1000000
+//Variable declaration
+#define TOTAL_ITERATIONS 1000000000
+#define TEST_SIZE 1000
 #define EXPERIMENT_FREQUENCY 3
 
 struct stat st = {0};
@@ -18,34 +19,39 @@ struct InputParameters
 	int threadCount;		// 1 2 4 8
 };
 
-float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, h = 946.1, j = 464.4, k = 43.14;
-double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
-
 
 void *computeArithmeticOperations(void *param)
 {
 	struct InputParameters *inp = (struct InputParameters *) param;
-	long long int total_iterations = (long long int) ITERATION1 / (10 * (*inp).threadCount);
 
+	long long int total_iterations = (long long int) TOTAL_ITERATIONS / (25 * (*inp).threadCount);
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
-		for (int j = 0; j < ITERATION2; j++)
+		int total = 61;
+		for (int j = 0; j < TEST_SIZE; j++)
 		{
-			float total = 1.111;
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + a + b - c * d + e - f * g - h + j * k  ;
+				total += (int) 1452 + 1432 - 4295 + 4134
+				         + 4734 - 6843 + 6531 + 8774 + 520
+				         + 1085 + 1546 + 8561 + 4510 - 17413
+				         + 6241 + 452 - 913 + 7923 + 1521
+				         + 8536 - 210 + 955 + 1630 - 6734;
 			}
 		}
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
-		for (int j = 0; j < ITERATION2; j++)
+		double total = 40;
+		for (int j = 0; j < TEST_SIZE; j++)
 		{
-			double total = 1.2131;
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total = total + aa + bb - cc * dd + ee - ff * gg - hh + jj * kk  ;
+				total += (double) 14452.23 + 1432.821 - 14295.1298 + 4134.894
+				         + 34734.33 - 26843.65 + 165312.555 + 1521.8774 + 520.83
+				         + 21085.74 + 1546.153 + 8561.9415 + 4510.4325 - 17413.672;
+				total += (double) 6241.65841 + 452.85 - 913.74 + 7923.5684 + 1521.23;
+				total += (double) 6.2 - 210.654 + 955.782 + 1630.9874 - 6734.564;
 			}
 		}
 	}
@@ -57,8 +63,8 @@ void *computeArithmeticOperations(void *param)
 int main(int argc, char *argv[]) {
 
 	struct InputParameters *inp = malloc(sizeof(struct InputParameters));
-	double th_Gops, efficiency;
-
+	double theoGOps, efficiency;
+	
 	if (argc > 1)
 	{
 		strcpy((*inp).precisionType, argv[1]);
@@ -67,10 +73,10 @@ int main(int argc, char *argv[]) {
 
 	else
 	{
-		printf("Error: Insufficient input paraments. Specify Precision Type followed by Thread Count.\n Example: ./CPUBenchmark SP 1\n");
+		printf("Error: Insufficient input paraments. Specify Precision Type followed by Thread Count.\n Example: CPUBenchmark SP 2\n");
 		exit(1);
 	}
-
+	
 	printf("\nCommencing CPU Benchmark...\n");
 
 	double total_time_taken[EXPERIMENT_FREQUENCY];
@@ -79,11 +85,10 @@ int main(int argc, char *argv[]) {
 
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
 	{
-		printf("Experiment Number: %d\n",i+1);
 		struct timeval process_start_time, process_end_time;
 		pthread_t threadIdList[(*inp).threadCount];
 		gettimeofday(&process_start_time, NULL);
-
+		
 		for (int i = 0; i < (*inp).threadCount ; ++i)
 			pthread_create(&threadIdList[i], NULL, computeArithmeticOperations, (void *) inp);
 
@@ -96,9 +101,9 @@ int main(int argc, char *argv[]) {
 		total_time_taken[i] = (float) (process_end_time.tv_usec - process_start_time.tv_usec) / 1000000 + (float) (process_end_time.tv_sec - process_start_time.tv_sec);
 
 		printf("Total time : %f\n", total_time_taken[i]);
-		printf("Operations per Second : %lld\n", (long long int)ITERATION1 * ITERATION2);
-		processor_speed[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9) 
-		printf("Processor_speed : %f Gops\n", processor_speed[i]);
+		printf("ops : %lld\n", (long long int)TOTAL_ITERATIONS * TEST_SIZE);
+		processor_speed[i] = (double)TEST_SIZE / total_time_taken[i];
+		printf("processor_speed : %f\n", processor_speed[i]);
 	}
 
 	double avg_processor_speed = 0;
@@ -110,25 +115,25 @@ int main(int argc, char *argv[]) {
 
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
-		th_Gops = 294.4; 
+		theoGOps = 294.4;
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
-		th_Gops = 147.20;
+		theoGOps = 147.20;
 	}
 
-	efficiency = avg_processor_speed * 100 / th_Gops;
+	efficiency = avg_processor_speed * 100 / theoGOps;
 
 	printf("PrecisionType \t\t ThreadCount \t\t AverageProcessorSpeed\n");
 	printf("%s\t\t %d\t\t\t %.2f\t\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed);
 
 	FILE *outputFilePointer;
 	if (stat("./output", &st) == -1) {
-		mkdir("./output", 0700);
+   		 mkdir("./output", 0700);
 	}
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
-	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed, th_Gops, efficiency);
+	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed, theoGOps, efficiency);
 	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
