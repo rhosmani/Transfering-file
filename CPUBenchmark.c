@@ -21,8 +21,8 @@ struct InputParameters
 float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, h = 946.1, j = 464.4, k = 43.14;
 double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
 
-float totalf = 0.0;
-double totald = 0.00; 
+float totalf[8];
+double totald[8]; 
 
 void *computeArithmeticOperations(void *param)
 {
@@ -39,8 +39,9 @@ void *computeArithmeticOperations(void *param)
 			{
 				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
 			}
+			totalf[i%((*inp).threadCount)] = total1;
 		}
-		totalf = total1;
+		
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
@@ -54,6 +55,7 @@ void *computeArithmeticOperations(void *param)
 			}
 		}
 		totald = total2;
+		totalf[i%((*inp).threadCount)] = total1;
 	}
 	pthread_exit(NULL);
 	return NULL;
@@ -82,7 +84,7 @@ int main(int argc, char *argv[]) {
 	printf("\nPrecisionType: %s \t Thread #: %d \n", (*inp).precisionType, (*inp).threadCount );
 
 	double total_time_taken[EXPERIMENT_FREQUENCY];
-	double processor_speed[EXPERIMENT_FREQUENCY];
+	double throughput[EXPERIMENT_FREQUENCY];
 
 
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
@@ -105,16 +107,17 @@ int main(int argc, char *argv[]) {
 
 		printf("Total time : %f\n", total_time_taken[i]);
 		printf("Operations per Second : %lld\n", (long long int)ITERATION1 * ITERATION2);
-		processor_speed[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9) 
-		printf("Processor_speed : %f Gops\n", processor_speed[i]);
+		throughput[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9) 
+		printf("CPUBench : %f Gops\n", throughput[i]);
+
 	}
 
-	double avg_processor_speed = 0;
+	double avg_throughput = 0;
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
 	{
-		avg_processor_speed += processor_speed[i];
+		avg_throughput += throughput[i];
 	}
-	avg_processor_speed /= EXPERIMENT_FREQUENCY;
+	avg_throughput /= EXPERIMENT_FREQUENCY;
 
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
@@ -125,10 +128,10 @@ int main(int argc, char *argv[]) {
 		th_Gops = 73.6;
 	}
 
-	efficiency = (avg_processor_speed / th_Gops) * 100;
+	efficiency = (avg_throughput / th_Gops) * 100;
 
 	printf("PrecisionType \t\t ThreadCount \t\t AverageProcessorSpeed\n");
-	printf("%s\t\t %d\t\t\t %.2f\t\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed);
+	printf("%s\t\t %d\t\t\t %.2f\t\n", (*inp).precisionType, (*inp).threadCount, avg_throughput);
 
 	FILE *outputFilePointer;
 	if (stat("./output", &st) == -1) {
@@ -136,10 +139,17 @@ int main(int argc, char *argv[]) {
 	}
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
-	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_processor_speed, th_Gops, efficiency);
+	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_throughput, th_Gops, efficiency);
 	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
+	double random=0;
+	for(int i =0; i < (*inp).threadCount; i ++){
+		if (strcmp((*inp).precisionType, "DP") == 0)
+			random += totald[i];
+		if (strcmp((*inp).precisionType, "SP") == 0)
+			random +=  totalf[i];
+	}
 	return 0;
 }
 
