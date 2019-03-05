@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <immintrin.h>
 
 #define ITERATION1 1000000
 #define ITERATION2 1000000
@@ -18,42 +19,47 @@ struct InputParameters
 	int threadCount;		// 1 2 4 8
 };
 
-float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, h = 946.1, j = 464.4, k = 43.14;
-double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
-
-float totalf = 0.0;
-double totald = 0.00; 
-
 void *computeArithmeticOperations(void *param)
 {
 	struct InputParameters *inp = (struct InputParameters *) param;
-	long long int total_iterations = (long long int) ITERATION1 / (10 * (*inp).threadCount);
+	long long int total_iterations = (long long int) ITERATION1 / (8 * (*inp).threadCount);
 
-	float total1 = 1.111;
-	double total2 = 1.111;
+	__m256 set1 = _mm256_set_ps(2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0);
+	__m256 set2 = _mm256_set_ps(1.0, 3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0);
+	__mm256 set3 = _mm256_set_ps(1.1, 2.1);
+	__mm256 set4 = _mm256_set_ps(8.3, 9.3);
+
+	__m256 result1, result2;
+
+	__m256d set1d = _mm256_set_pd(2.21, 26.4, 214.4, 46.4, 4.16, 9.3, 47.4, 785.44);
+	__m256d set2d = _mm256_set_pd(65.1, 55.4, 15.1, 25.5, 669.4, 464.0, 99.0, 45.55);
+	__mm256d set3d = _mm256_set_pd(1.221, 211.1);
+	__mm256d set4d = _mm256_set_pd(81.3, 9.333);
+
+	__m256d result1d, result2d;
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
 		for (int j = 0; j < ITERATION2; j++)
 		{
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
+				result1 = _mm256_add_ps(set1, set2);
+				result2 = _mm256_add_ps(set3, set4);
 			}
 		}
-		totalf = total1;
+
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
-		total2 = 1.2131;
 		for (int j = 0; j < ITERATION2; j++)
 		{
-			
+
 			for (long long int i = 0; i < total_iterations; i++)
 			{
-				total2 = (double)total2 + aa + bb - cc + dd + ee - ff + gg - hh + jj * kk  ;
+				result1d = _mm256_add_pd(set1d, set2d);
+				result2d = _mm256_add_pd(set3d, set4d);
 			}
 		}
-		totald = total2;
 	}
 	pthread_exit(NULL);
 	return NULL;
@@ -87,7 +93,7 @@ int main(int argc, char *argv[]) {
 
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
 	{
-		printf("\nExperiment Number: %d\n",i+1);
+		printf("\nExperiment Number: %d\n", i + 1);
 		struct timeval process_start_time, process_end_time;
 		pthread_t threadIdList[(*inp).threadCount];
 		gettimeofday(&process_start_time, NULL);
@@ -105,7 +111,7 @@ int main(int argc, char *argv[]) {
 
 		printf("Total time : %f\n", total_time_taken[i]);
 		printf("Operations per Second : %lld\n", (long long int)ITERATION1 * ITERATION2);
-		throughput[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9) 
+		throughput[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9)
 		printf("CPUBench : %f Gops\n", throughput[i]);
 	}
 
@@ -118,7 +124,7 @@ int main(int argc, char *argv[]) {
 
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
-		th_Gops = 147.2; 
+		th_Gops = 147.2;
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
