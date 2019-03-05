@@ -7,8 +7,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define ITERATION1 1000000000
-#define ITERATION2 1000
+#define ITERATION1 1000000
+#define ITERATION2 1000000
 #define EXPERIMENT_FREQUENCY 3
 
 struct stat st = {0};
@@ -112,11 +112,11 @@ int main(int argc, char *argv[]) {
 
 	if (strcmp((*inp).precisionType, "SP") == 0)
 	{
-		th_Gops = 294.4; 
+		th_Gops = 147.2; 
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
-		th_Gops = 147.2;
+		th_Gops = 73.6;
 	}
 
 	efficiency = (avg_processor_speed / th_Gops) * 100;
