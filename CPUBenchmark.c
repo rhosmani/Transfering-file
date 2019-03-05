@@ -21,6 +21,8 @@ struct InputParameters
 float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, h = 946.1, j = 464.4, k = 43.14;
 double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
 
+float totalf = 0.0;
+double totald 0.00; 
 
 void *computeArithmeticOperations(void *param)
 {
@@ -38,6 +40,7 @@ void *computeArithmeticOperations(void *param)
 				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
 			}
 		}
+		totalf = total1;
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
@@ -50,6 +53,7 @@ void *computeArithmeticOperations(void *param)
 				total2 = (double)total2 + aa + bb - cc + dd + ee - ff + gg - hh + jj * kk  ;
 			}
 		}
+		totald = total2;
 	}
 	pthread_exit(NULL);
 	return NULL;
