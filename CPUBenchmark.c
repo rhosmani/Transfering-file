@@ -21,8 +21,8 @@ struct InputParameters
 float a = 10.4, b = 15.6, c = 25.4, d = 65.4, e = 4643.45, f = 44.45, g = 45.4, h = 946.1, j = 464.4, k = 43.14;
 double aa = 464.446, bb = 789.444, cc = 7823.44, dd = 0.22564, ee = 7464.46, ff = 7464.4, gg = 13.111, hh = 48.4156, jj = 464.164, kk = 5464.44;
 
-float totalf[8];
-double totald[8]; 
+float totalf = 0.0;
+double totald = 0.00; 
 
 void *computeArithmeticOperations(void *param)
 {
@@ -39,9 +39,8 @@ void *computeArithmeticOperations(void *param)
 			{
 				total1 = (float)total1 + a + b - c + d + e - f + g - h + j - k  ;
 			}
-			totalf[j%((*inp).threadCount)] = total1;
 		}
-		
+		totalf = total1;
 	}
 	else if (strcmp((*inp).precisionType, "DP") == 0)
 	{
@@ -55,7 +54,6 @@ void *computeArithmeticOperations(void *param)
 			}
 		}
 		totald = total2;
-		totalf[j%((*inp).threadCount)] = total1;
 	}
 	pthread_exit(NULL);
 	return NULL;
@@ -109,7 +107,6 @@ int main(int argc, char *argv[]) {
 		printf("Operations per Second : %lld\n", (long long int)ITERATION1 * ITERATION2);
 		throughput[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9) 
 		printf("CPUBench : %f Gops\n", throughput[i]);
-
 	}
 
 	double avg_throughput = 0;
@@ -143,13 +140,6 @@ int main(int argc, char *argv[]) {
 	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
-	double random=0;
-	for(int i =0; i < (*inp).threadCount; i ++){
-		if (strcmp((*inp).precisionType, "DP") == 0)
-			random += totald[i];
-		if (strcmp((*inp).precisionType, "SP") == 0)
-			random +=  totalf[i];
-	}
 	return 0;
 }
 
