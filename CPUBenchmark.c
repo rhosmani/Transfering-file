@@ -19,6 +19,8 @@ struct InputParameters
 	int threadCount;		// 1 2 4 8
 };
 
+pthread_mutex_t mutex;
+
 void *computeArithmeticOperations(void *param)
 {
 	struct InputParameters *inp = (struct InputParameters *) param;
@@ -36,10 +38,12 @@ void *computeArithmeticOperations(void *param)
 	{
 		for (int j = 0; j < ITERATION2; j++)
 		{
+			 pthread_mutex_lock(&mutex);
 			for (long long int i = 0; i < total_iterations; i++)
 			{
 				result = _mm256_add_ps(set1, set2);
 			}
+			 pthread_mutex_unlock(&mutex);
 		}
 
 	}
@@ -47,11 +51,12 @@ void *computeArithmeticOperations(void *param)
 	{
 		for (int j = 0; j < ITERATION2; j++)
 		{
-
+			pthread_mutex_lock(&mutex);
 			for (long long int i = 0; i < total_iterations; i++)
 			{
 				resultd = _mm256_add_pd(set1d, set2d);
 			}
+			pthread_mutex_unlock(&mutex);
 		}
 	}
 	pthread_exit(NULL);
