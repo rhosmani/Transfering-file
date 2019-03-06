@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
 		total_time_taken[i] = (float) (process_end_time.tv_usec - process_start_time.tv_usec) / 1000000 + (float) (process_end_time.tv_sec - process_start_time.tv_sec);
 
 		printf("Total time : %f\n", total_time_taken[i]);
-		long double ops = (long long float)(ITERATION1 * ITERATION2)/total_time_taken[i];
+		long double ops = (long double)(ITERATION1 * ITERATION2)/total_time_taken[i];
 		printf("Operations per Second : %Lf\n", ops);
 		throughput[i] = (long double) ops / 1000000000;			
 		printf("CPUBench : %f Gops\n", throughput[i]);
