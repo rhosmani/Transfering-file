@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
 		long double ops = (long double)(ITERATION1 * ITERATION2)/total_time_taken[i];
 		printf("Operations per Second : %Lf\n", ops);
 		throughput[i] = (long double) ops / 1000000000;			
-		printf("CPUBench : %f Gops\n", throughput[i]);
+		printf("CPUBench : %lf Gops\n", throughput[i]);
 	}
 
 	long double avg_throughput = 0;
@@ -135,7 +135,7 @@ int main(int argc, char *argv[]) {
 	}
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
-	sprintf(outputSTR, "%s \t %d \t %f \t %Lf \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_throughput, th_Gops, efficiency);
+	sprintf(outputSTR, "%s \t %d \t %f \t %lf \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_throughput, th_Gops, efficiency);
 	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
