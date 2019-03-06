@@ -1,0 +1,168 @@
+
+Commencing CPU Benchmark...
+
+PrecisionType: SP 	 Thread #: 1 
+
+Experiment Number: 1
+Total time : 324.258209
+Operations per Second : 3083962014.035754
+CPUBench : 3.083962 Gops
+
+Experiment Number: 2
+Total time : 330.511810
+Operations per Second : 3025610489.029253
+CPUBench : 3.025610 Gops
+
+Experiment Number: 3
+Total time : 333.201141
+Operations per Second : 3001190199.787788
+CPUBench : 3.001190 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 1			 3.036921	
+
+Commencing CPU Benchmark...
+
+PrecisionType: SP 	 Thread #: 2 
+
+Experiment Number: 1
+Total time : 168.424393
+Operations per Second : 5937382251.869271
+CPUBench : 5.937382 Gops
+
+Experiment Number: 2
+Total time : 165.928116
+Operations per Second : 6026706172.785011
+CPUBench : 6.026706 Gops
+
+Experiment Number: 3
+Total time : 164.576050
+Operations per Second : 6076218266.186127
+CPUBench : 6.076218 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 2			 6.013436	
+
+Commencing CPU Benchmark...
+
+PrecisionType: SP 	 Thread #: 4 
+
+Experiment Number: 1
+Total time : 86.280128
+Operations per Second : 11590154275.713068
+CPUBench : 11.590154 Gops
+
+Experiment Number: 2
+Total time : 85.742210
+Operations per Second : 11662867046.145257
+CPUBench : 11.662867 Gops
+
+Experiment Number: 3
+Total time : 86.100075
+Operations per Second : 11614391772.524793
+CPUBench : 11.614392 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 4			 11.622471	
+
+Commencing CPU Benchmark...
+
+PrecisionType: SP 	 Thread #: 8 
+
+Experiment Number: 1
+Total time : 85.440948
+Operations per Second : 11703989921.881725
+CPUBench : 11.703990 Gops
+
+Experiment Number: 2
+Total time : 85.851685
+Operations per Second : 11647995086.002073
+CPUBench : 11.647995 Gops
+
+Experiment Number: 3
+Total time : 85.289810
+Operations per Second : 11724730045.497377
+CPUBench : 11.724730 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 8			 11.692238	
+
+Commencing CPU Benchmark...
+
+PrecisionType: DP 	 Thread #: 1 
+
+Experiment Number: 1
+Total time : 318.345917
+Operations per Second : 3141237086.422077
+CPUBench : 3.141237 Gops
+
+Experiment Number: 2
+Total time : 319.969421
+Operations per Second : 3125298647.808562
+CPUBench : 3.125299 Gops
+
+Experiment Number: 3
+Total time : 319.628021
+Operations per Second : 3128636832.652397
+CPUBench : 3.128637 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 1			 3.131724	
+
+Commencing CPU Benchmark...
+
+PrecisionType: DP 	 Thread #: 2 
+
+Experiment Number: 1
+Total time : 165.000961
+Operations per Second : 6060570751.217251
+CPUBench : 6.060571 Gops
+
+Experiment Number: 2
+Total time : 163.140930
+Operations per Second : 6129669598.686970
+CPUBench : 6.129670 Gops
+
+Experiment Number: 3
+Total time : 164.956451
+Operations per Second : 6062206063.575092
+CPUBench : 6.062206 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 2			 6.084149	
+
+Commencing CPU Benchmark...
+
+PrecisionType: DP 	 Thread #: 4 
+
+Experiment Number: 1
+Total time : 87.758141
+Operations per Second : 11394954286.561297
+CPUBench : 11.394954 Gops
+
+Experiment Number: 2
+Total time : 86.596191
+Operations per Second : 11547851975.483369
+CPUBench : 11.547852 Gops
+
+Experiment Number: 3
+Total time : 86.904106
+Operations per Second : 11506936143.931516
+CPUBench : 11.506936 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 4			 11.483247	
+
+Commencing CPU Benchmark...
+
+PrecisionType: DP 	 Thread #: 8 
+
+Experiment Number: 1
+Total time : 86.526802
+Operations per Second : 11557112665.183643
+CPUBench : 11.557113 Gops
+
+Experiment Number: 2
+Total time : 85.834656
+Operations per Second : 11650305941.414264
+CPUBench : 11.650306 Gops
+
+Experiment Number: 3
+Total time : 86.026688
+Operations per Second : 11624299710.261634
+CPUBench : 11.624300 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 8			 11.610573	
