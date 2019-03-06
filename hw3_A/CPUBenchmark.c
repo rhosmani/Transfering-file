@@ -9,7 +9,7 @@
 #include <immintrin.h>
 
 #define ITERATION1 1000000
-#define ITERATION2 125000
+#define ITERATION2 1000000
 #define EXPERIMENT_FREQUENCY 3
 
 struct stat st = {0};
