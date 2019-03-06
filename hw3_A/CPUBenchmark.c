@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
 	printf("\nPrecisionType: %s \t Thread #: %d \n", (*inp).precisionType, (*inp).threadCount );
 
 	double total_time_taken[EXPERIMENT_FREQUENCY];
-	double throughput[EXPERIMENT_FREQUENCY];
+	long double throughput[EXPERIMENT_FREQUENCY];
 
 
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
@@ -102,12 +102,13 @@ int main(int argc, char *argv[]) {
 		total_time_taken[i] = (float) (process_end_time.tv_usec - process_start_time.tv_usec) / 1000000 + (float) (process_end_time.tv_sec - process_start_time.tv_sec);
 
 		printf("Total time : %f\n", total_time_taken[i]);
-		printf("Operations per Second : %lld\n", (long long int)ITERATION1 * ITERATION2);
-		throughput[i] = (double) 1000 / total_time_taken[i];			//----- Converting ops to Gops = total iterations/ (total time * 10^ 9)
+		long double ops = (long long float)(ITERATION1 * ITERATION2)/total_time_taken[i];
+		printf("Operations per Second : %Lf\n", ops);
+		throughput[i] = (long double) ops / 1000000000;			
 		printf("CPUBench : %f Gops\n", throughput[i]);
 	}
 
-	double avg_throughput = 0;
+	long double avg_throughput = 0;
 	for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
 	{
 		avg_throughput += throughput[i];
@@ -126,7 +127,7 @@ int main(int argc, char *argv[]) {
 	efficiency = (avg_throughput / th_Gops) * 100;
 
 	printf("PrecisionType \t\t ThreadCount \t\t AverageProcessorSpeed\n");
-	printf("%s\t\t %d\t\t\t %.2f\t\n", (*inp).precisionType, (*inp).threadCount, avg_throughput);
+	printf("%s\t\t %d\t\t\t %Lf\t\n", (*inp).precisionType, (*inp).threadCount, avg_throughput);
 
 	FILE *outputFilePointer;
 	if (stat("./output", &st) == -1) {
@@ -134,7 +135,7 @@ int main(int argc, char *argv[]) {
 	}
 	outputFilePointer = fopen("./output/output.txt" , "a");
 	char outputSTR[1024];
-	sprintf(outputSTR, "%s \t %d \t %f \t %f \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_throughput, th_Gops, efficiency);
+	sprintf(outputSTR, "%s \t %d \t %f \t %Lf \t %f\n", (*inp).precisionType, (*inp).threadCount, avg_throughput, th_Gops, efficiency);
 	fwrite(outputSTR, 1, strlen(outputSTR), outputFilePointer);
 	fclose(outputFilePointer);
 
