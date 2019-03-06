@@ -9,7 +9,7 @@
 #include <immintrin.h>
 
 #define ITERATION1 1000000
-#define ITERATION2 1000000
+#define ITERATION2 125000
 #define EXPERIMENT_FREQUENCY 3
 
 struct stat st = {0};
@@ -22,7 +22,7 @@ struct InputParameters
 void *computeArithmeticOperations(void *param)
 {
 	struct InputParameters *inp = (struct InputParameters *) param;
-	long long int total_iterations = (long long int) ITERATION1 / (10 * (*inp).threadCount); 
+	long long int total_iterations = (long long int) ITERATION1 / (8 * (*inp).threadCount); 
 
 	__m256 set1 = _mm256_set_ps(2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0);
 	__m256 set2 = _mm256_set_ps(1.0, 3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0);
