@@ -17,10 +17,12 @@ const static int DPMatrixSize = 16384;
 #define MATRIX_SIZE 16384
 
 // Initializing matrices
-float *matrixSP[MATRIX_SIZE];
+float *matrixSP1[MATRIX_SIZE];
+float *matrixSP2[MATRIX_SIZE];
 float *resultSPMatrix[MATRIX_SIZE];
 
-double *matrixDP[MATRIX_SIZE];
+double *matrixDP1[MATRIX_SIZE];
+double *matrixDP2[MATRIX_SIZE];
 double *resultDPMatrix[MATRIX_SIZE];
 
 double randomNumberGen(int n) {
@@ -39,27 +41,27 @@ struct InputParameters
 void *matrixMultiplication(void *arg)      // each thread
 {
    struct InputParameters *p = (struct InputParameters *) arg;
-   int core = step++;
-   double m;
-   int initialValue = ((core * SPMatrixSize) / ((*p).threadCount));
-   int endValue = ((core + 1) * SPMatrixSize) / ((*p).threadCount);
+   int iter = step++;
+   double r;
+   int head_val = ((iter * SPMatrixSize) / ((*p).threadCount));
+   int tail_val = ((iter + 1) * SPMatrixSize) / ((*p).threadCount);
    
    if (strcmp((*p).precisionType, "SP") == 0)
    {
-      for (int i = initialValue; i < endValue; ++i)
+      for (int i = head_val; i < tail_val; ++i)
          for (int j = 0; j < SPMatrixSize; ++j)
             for (int k = 0; k < SPMatrixSize; ++k )
-               resultSPMatrix[i][j] += matrixSP[i][k] * matrixSP[k][j];
+               resultSPMatrix[i][j] += matrixSP1[i][k] * matrixSP2[k][j];
 
-      m = (float) resultSPMatrix[initialValue][endValue - 1];
+      r = (float) resultSPMatrix[head_val][tail_val - 1];
    }
    else if (strcmp((*p).precisionType, "DP") == 0)
    {
-      for (int i = initialValue; i < endValue; ++i)
+      for (int i = head_val; i < tail_val; ++i)
          for (int j = 0; j < DPMatrixSize; ++j)
             for (int k = 0; k < DPMatrixSize; ++k)
-               resultDPMatrix[i][j] += matrixDP[i][k] * matrixDP[k][j];
-      m = resultDPMatrix[initialValue][endValue - 1];
+               resultDPMatrix[i][j] += matrixDP1[i][k] * matrixDP2[k][j];
+      r = resultDPMatrix[head_val][tail_val - 1];
    }
    pthread_exit(NULL);
    return NULL;
@@ -89,7 +91,8 @@ int main(int argc, char *argv[])
 
       //Creating SP Matrix
       for (int i = 0; i < SPMatrixSize; ++i) {
-         matrixSP[i] = (float *)malloc (SPMatrixSize * sizeof(float));
+         matrixSP1[i] = (float *)malloc (SPMatrixSize * sizeof(float));
+         matrixSP2[i] = (float *)malloc (SPMatrixSize * sizeof(float));
       }
 
       for (int i = 0; i < SPMatrixSize; ++i) 
@@ -100,7 +103,8 @@ int main(int argc, char *argv[])
       {
          for (int j = 0; j < SPMatrixSize; ++j)
          {
-            matrixSP[i][j] = (float)randomNumberInGen(rand() % 10);
+            matrixSP1[i][j] = (float)randomNumberGen(rand() % 10);
+            matrixSP2[i][j] = (float)randomNumberGen(rand() % 10);
          }
       }
 
@@ -109,7 +113,8 @@ int main(int argc, char *argv[])
    {
       //Creating DP Matrix
       for (int i = 0; i < DPMatrixSize; ++i) {
-         matrixDP[i] = (double *)malloc (DPMatrixSize * sizeof(double));
+         matrixDP1[i] = (double *)malloc (DPMatrixSize * sizeof(double));
+         matrixDP2[i] = (double *)malloc (DPMatrixSize * sizeof(double));
       }
 
       for (int i = 0; i < DPMatrixSize; ++i) 
@@ -121,7 +126,8 @@ int main(int argc, char *argv[])
       {
          for (int j = 0; j < DPMatrixSize; ++j)
          {
-            matrixDP[i][j] = (double)randomNumberInGen(rand() % 10);
+            matrixDP1[i][j] = (double)randomNumberGen(rand() % 10);
+            matrixDP2[i][j] = (double)randomNumberGen(rand() % 10);
          }
       }
    }
