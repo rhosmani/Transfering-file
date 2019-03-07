@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
    printf("\nPrecisionType: %s \t Thread #: %d \n", (*inp).precisionType, (*inp).threadCount );
 
    double total_time_taken[EXPERIMENT_FREQUENCY];
-   double throughput[EXPERIMENT_FREQUENCY];
+   long double throughput[EXPERIMENT_FREQUENCY];
    int n = SPMatrixSize;
 
    for (int i = 0; i < EXPERIMENT_FREQUENCY; i++)
@@ -152,9 +152,10 @@ int main(int argc, char *argv[])
       total_time_taken[i] = (float) (process_end_time.tv_usec - process_start_time.tv_usec) / 1000000 + (float) (process_end_time.tv_sec - process_start_time.tv_sec);
 
       printf("Total time : %f\n", total_time_taken[i]);
-      printf("Operations per Second : %lld\n", (long long int)(2 * n * n * n));  //Matrix Bench 2n^3
-      throughput[i] = (double) 1000 / total_time_taken[i];        //----- Converting ops to Gops = total iterations/ (total time * 10^ 9)
-      printf("MatrixBench : %f Gops\n", throughput[i]);
+      long double ops = (long double)(2 * n * n * n)/total_time_taken[i];//Matrix Bench 2n^3
+      printf("Operations per Second : %Lf\n", ops);  
+      throughput[i] = (double) ops / 1000000000;        //----- Converting ops to Gops = total iterations/ (total time * 10^ 9)
+      printf("MatrixBench : %Lf Gops\n", throughput[i]);
 
    }
    double avg_throughput = 0;
