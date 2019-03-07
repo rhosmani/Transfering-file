@@ -11,11 +11,10 @@
 #define MAX_DP 15808
 #define EXPERIMENT_FREQUENCY 3
 
-const static int SPMatrixSize = 10000;
-const static int DPMatrixSize = 10000;
+const static int SPMatrixSize = 15000;
+const static int DPMatrixSize = 15000;
 
-
-#define MATRIX_SIZE 10000
+#define MATRIX_SIZE 15000
 
 // Initializing matrices
 float *matrixSP[MATRIX_SIZE];
@@ -24,7 +23,7 @@ float *resultSPMatrix[MATRIX_SIZE];
 double *matrixDP[MATRIX_SIZE];
 double *resultDPMatrix[MATRIX_SIZE];
 
-double randomNumberInRange(int n) {
+double randomNumberGen(int n) {
    return ((n / 9.0) * (2.0)) - 1.0;
 }
 struct stat st = {0};
@@ -101,7 +100,7 @@ int main(int argc, char *argv[])
       {
          for (int j = 0; j < SPMatrixSize; ++j)
          {
-            matrixSP[i][j] = (float)randomNumberInRange(rand() % 10);
+            matrixSP[i][j] = (float)randomNumberInGen(rand() % 10);
          }
       }
 
@@ -122,7 +121,7 @@ int main(int argc, char *argv[])
       {
          for (int j = 0; j < DPMatrixSize; ++j)
          {
-            matrixDP[i][j] = (double)randomNumberInRange(rand() % 10);
+            matrixDP[i][j] = (double)randomNumberInGen(rand() % 10);
          }
       }
    }
@@ -154,7 +153,7 @@ int main(int argc, char *argv[])
       printf("Total time : %f\n", total_time_taken[i]);
       long double ops = (long double)(2 * n * n * n)/total_time_taken[i];//Matrix Bench 2n^3
       printf("Operations per Second : %Lf\n", ops);  
-      throughput[i] = (double) ops / 1000000000;        //----- Converting ops to Gops = total iterations/ (total time * 10^ 9)
+      throughput[i] = (double) ops / 1000000000;        
       printf("MatrixBench : %Lf Gops\n", throughput[i]);
 
    }
