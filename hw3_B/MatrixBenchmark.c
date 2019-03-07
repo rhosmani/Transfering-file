@@ -9,7 +9,7 @@
 
 #define MAX_SP 22360
 #define MAX_DP 15808
-#define EXPERIMENT_FREQUENCY 3
+#define EXPERIMENT_FREQUENCY 1
 
 const static int SPMatrixSize = 16384;
 const static int DPMatrixSize = 16384;
