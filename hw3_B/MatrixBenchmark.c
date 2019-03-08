@@ -45,22 +45,31 @@ void *matrixMultiplication(void *arg)      // each thread
    double r;
    int head_val = ((iter * SPMatrixSize) / ((*p).threadCount));
    int tail_val = ((iter + 1) * SPMatrixSize) / ((*p).threadCount);
-   
+
    if (strcmp((*p).precisionType, "SP") == 0)
    {
-      for (int i = head_val; i < tail_val; ++i)
-         for (int j = 0; j < SPMatrixSize; ++j)
-            for (int k = 0; k < SPMatrixSize; ++k )
-               resultSPMatrix[i][j] += matrixSP1[i][k] * matrixSP2[k][j];
-
+      //Mutiplying the transpose of second matrix to increase efficiency
+      for (int i = head_val; i < tail_val; i++)
+         for (int j = 0; j < SPMatrixSize; j++) {
+            float sigma = 0;
+            for (int k = 0; k < SPMatrixSize; k++ ) {
+               sigma += matrixSP1[i][k] * matrixSP2[j][k];
+                        resultSPMatrix[i][j] = sigma;
+            }
+         }
       r = (float) resultSPMatrix[head_val][tail_val - 1];
    }
    else if (strcmp((*p).precisionType, "DP") == 0)
    {
-      for (int i = head_val; i < tail_val; ++i)
-         for (int j = 0; j < DPMatrixSize; ++j)
-            for (int k = 0; k < DPMatrixSize; ++k)
-               resultDPMatrix[i][j] += matrixDP1[i][k] * matrixDP2[k][j];
+      //Mutiplying the transpose of second matrix to increase efficiency
+      for (int i = head_val; i < tail_val; i++)
+         for (int j = 0; j < DPMatrixSize; j++) {
+            double sigma = 0;
+            for (int k = 0; k < DPMatrixSize; k++) {
+               sigma += matrixDP1[i][k] * matrixDP2[j][k];
+               resultDPMatrix[i][j] = sigma;
+            }
+         }
       r = resultDPMatrix[head_val][tail_val - 1];
    }
    pthread_exit(NULL);
@@ -90,17 +99,12 @@ int main(int argc, char *argv[])
    {
 
       //Creating SP Matrix
-      for (int i = 0; i < SPMatrixSize; ++i) {
-         matrixSP1[i] = (float *)malloc (SPMatrixSize * sizeof(float));
-         matrixSP2[i] = (float *)malloc (SPMatrixSize * sizeof(float));
-      }
-
-      for (int i = 0; i < SPMatrixSize; ++i) 
-            resultSPMatrix[i] = (float *)malloc(SPMatrixSize * sizeof(float));
-
-      //Intitalizing SP Matrix
       for (int i = 0; i < SPMatrixSize; ++i)
       {
+         matrixSP1[i] = (float *)malloc (SPMatrixSize * sizeof(float));
+         matrixSP2[i] = (float *)malloc (SPMatrixSize * sizeof(float));
+         resultSPMatrix[i] = (float *)malloc(SPMatrixSize * sizeof(float));
+         //Intitalizing SP Matrix
          for (int j = 0; j < SPMatrixSize; ++j)
          {
             matrixSP1[i][j] = (float)randomNumberGen(rand() % 10);
@@ -112,18 +116,12 @@ int main(int argc, char *argv[])
    else if (strcmp((*inp).precisionType, "DP") == 0)
    {
       //Creating DP Matrix
-      for (int i = 0; i < DPMatrixSize; ++i) {
-         matrixDP1[i] = (double *)malloc (DPMatrixSize * sizeof(double));
-         matrixDP2[i] = (double *)malloc (DPMatrixSize * sizeof(double));
-      }
-
-      for (int i = 0; i < DPMatrixSize; ++i) 
-            resultDPMatrix[i] = (double *)malloc(DPMatrixSize * sizeof(double));
-
-
       //Intitalizing DP Matrix
       for (int i = 0; i < DPMatrixSize; ++i)
       {
+         matrixDP1[i] = (double *)malloc (DPMatrixSize * sizeof(double));
+         matrixDP2[i] = (double *)malloc (DPMatrixSize * sizeof(double));
+         resultDPMatrix[i] = (double *)malloc(DPMatrixSize * sizeof(double));
          for (int j = 0; j < DPMatrixSize; ++j)
          {
             matrixDP1[i][j] = (double)randomNumberGen(rand() % 10);
@@ -157,9 +155,10 @@ int main(int argc, char *argv[])
       total_time_taken[i] = (float) (process_end_time.tv_usec - process_start_time.tv_usec) / 1000000 + (float) (process_end_time.tv_sec - process_start_time.tv_sec);
 
       printf("Total time : %f\n", total_time_taken[i]);
-      long double ops = (long double)(2 * n * n * n)/total_time_taken[i];//Matrix Bench 2n^3
-      printf("Operations per Second : %Lf\n", ops);  
-      throughput[i] = (double) ops / 1000000000;        
+      long double totalOps = (long double)2*n*n*n;
+      long double ops = (long double)totalOps / total_time_taken[i]; //Matrix Bench 2n^3
+      printf("Operations per Second : %Lf\n", ops);
+      throughput[i] = (double) (ops / 1000000000);
       printf("MatrixBench : %Lf Gops\n", throughput[i]);
 
    }
