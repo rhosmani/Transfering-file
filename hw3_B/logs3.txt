@@ -1,0 +1,168 @@
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: DP 	 Thread #: 4 
+
+Experiment Number: 1
+Total time : 675.250671
+Operations per Second : 5118099316.958302
+MatrixBench : 5.118099 Gops
+
+Experiment Number: 2
+Total time : 676.045654
+Operations per Second : 5112080786.310847
+MatrixBench : 5.112081 Gops
+
+Experiment Number: 3
+Total time : 674.866333
+Operations per Second : 5121014089.704179
+MatrixBench : 5.121014 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 4			 5.12	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: DP 	 Thread #: 8 
+
+Experiment Number: 1
+Total time : 674.359802
+Operations per Second : 5124860628.538478
+MatrixBench : 5.124861 Gops
+
+Experiment Number: 2
+Total time : 667.025635
+Operations per Second : 5181210166.254474
+MatrixBench : 5.181210 Gops
+
+Experiment Number: 3
+Total time : 670.944946
+Operations per Second : 5150944230.394509
+MatrixBench : 5.150944 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 8			 5.15	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: DP 	 Thread #: 1 
+
+Experiment Number: 1
+Total time : 2306.018799
+Operations per Second : 1498686828.466565
+MatrixBench : 1.498687 Gops
+
+Experiment Number: 2
+Total time : 2280.011230
+Operations per Second : 1515782007.481374
+MatrixBench : 1.515782 Gops
+
+Experiment Number: 3
+Total time : 2234.751221
+Operations per Second : 1546480864.618403
+MatrixBench : 1.546481 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 1			 1.52	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: DP 	 Thread #: 2 
+
+Experiment Number: 1
+Total time : 1270.744141
+Operations per Second : 2719666288.054028
+MatrixBench : 2.719666 Gops
+
+Experiment Number: 2
+Total time : 1283.151855
+Operations per Second : 2693367885.703196
+MatrixBench : 2.693368 Gops
+
+Experiment Number: 3
+Total time : 1291.117310
+Operations per Second : 2676751348.915124
+MatrixBench : 2.676751 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+DP		 2			 2.70	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: SP 	 Thread #: 1 
+
+Experiment Number: 1
+Total time : 2057.788574
+Operations per Second : 1679472829.861585
+MatrixBench : 1.679473 Gops
+
+Experiment Number: 2
+Total time : 2029.146484
+Operations per Second : 1703179157.646909
+MatrixBench : 1.703179 Gops
+
+Experiment Number: 3
+Total time : 2031.286987
+Operations per Second : 1701384403.877742
+MatrixBench : 1.701384 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 1			 1.69	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: SP 	 Thread #: 2 
+
+Experiment Number: 1
+Total time : 1103.889771
+Operations per Second : 3130747373.816289
+MatrixBench : 3.130747 Gops
+
+Experiment Number: 2
+Total time : 1102.691650
+Operations per Second : 3134149060.415686
+MatrixBench : 3.134149 Gops
+
+Experiment Number: 3
+Total time : 1085.295654
+Operations per Second : 3184385735.183858
+MatrixBench : 3.184386 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 2			 3.15	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: SP 	 Thread #: 4 
+
+Experiment Number: 1
+Total time : 573.175293
+Operations per Second : 6029569038.294929
+MatrixBench : 6.029569 Gops
+
+Experiment Number: 2
+Total time : 576.866394
+Operations per Second : 5990988616.581771
+MatrixBench : 5.990989 Gops
+
+Experiment Number: 3
+Total time : 572.207581
+Operations per Second : 6039766192.155369
+MatrixBench : 6.039766 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 4			 6.02	
+
+Commencing Matrix Multiplication Benchmark...
+
+PrecisionType: SP 	 Thread #: 8 
+
+Experiment Number: 1
+Total time : 568.252808
+Operations per Second : 6081800131.339059
+MatrixBench : 6.081800 Gops
+
+Experiment Number: 2
+Total time : 567.563843
+Operations per Second : 6089182818.820931
+MatrixBench : 6.089183 Gops
+
+Experiment Number: 3
+Total time : 567.420532
+Operations per Second : 6090720733.066584
+MatrixBench : 6.090721 Gops
+PrecisionType 		 ThreadCount 		 AverageProcessorSpeed
+SP		 8			 6.09	
