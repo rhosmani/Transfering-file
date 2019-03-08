@@ -9,12 +9,12 @@
 
 #define MAX_SP 22360
 #define MAX_DP 15808
-#define EXPERIMENT_FREQUENCY 1
+#define EXPERIMENT_FREQUENCY 3
 
-const static int SPMatrixSize = 10000;
-const static int DPMatrixSize = 10000;
+const static int SPMatrixSize = 12000;
+const static int DPMatrixSize = 12000;
 
-#define MATRIX_SIZE 10000
+#define MATRIX_SIZE 12000
 
 // Initializing matrices
 float *matrixSP1[MATRIX_SIZE];
