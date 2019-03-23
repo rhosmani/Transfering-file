@@ -100,9 +100,7 @@ int main(int argc, char *argv[]){
 
 	else
 	{
-		printf("Error: Insufficient input paraments. Specify Benchmark Type, block_size followed by Thread Count.\n 
-			myRAMBench <benchmarkType> <block_size> <thread_Count>\n
-			Example: myRAMBench RWS 10 2\n");
+		printf("Error: Insufficient input paraments. Specify Benchmark Type, block_size followed by Thread Count.\n myRAMBench benchmarkType block_size thread_Count \nExample: myRAMBench RWS 10 2\n");
 		exit(1);
 	}
 
