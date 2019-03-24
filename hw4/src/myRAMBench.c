@@ -39,13 +39,7 @@ void *read_write_sequential(void *arg)
 	}
 	
 	for(int i = 0; i < TEST_SIZE; i++)
-	{
-
-		if((*inp).block_size == 1)                     //Memory Latency
-			outputDataBlock = malloc((long long int) 1000000  * sizeof(char));
-		else
-			outputDataBlock = malloc((long long int) WORK_LOAD  * sizeof(char));
-		
+	{		
 		for(long long int j = 0; j < totalIterations; j++)
 		{
 			memcpy(outputDataBlock + (j * (*inp).block_size), (*inp).data + (j * (*inp).block_size) , (*inp).block_size);
@@ -63,20 +57,23 @@ void *read_write_random(void *arg)
 	outputDataBlock = malloc((long long int) WORK_LOAD  * sizeof(char));
 	long long int totalIterations;
 	
-	if((*inp).block_size == 1)
-		totalIterations = (long long int) 1000000 / (long long int) ((*inp).block_size * (*inp).threadCount);	
-	else
+	if((*inp).block_size == 1){
+		totalIterations = (long long int) 1000000 / (long long int) ((*inp).block_size * (*inp).threadCount);
+		outputDataBlock = malloc((long long int) 1000000  * sizeof(char));	
+	}
+	else{
 		totalIterations = (long long int) WORK_LOAD / (long long int) ((*inp).block_size * (*inp).threadCount);	
+		outputDataBlock = malloc((long long int) WORK_LOAD  * sizeof(char));
+	}
 	
 	for(int i = 0; i < TEST_SIZE; i++)
 	{
-	outputDataBlock = malloc((long long int) WORK_LOAD  * sizeof(char));
 		for(long long int j = 0; j < totalIterations; j++)
 		{
 			long long int l = rand() % totalIterations;
 			memcpy(outputDataBlock + (l * (*inp).block_size), (*inp).data + (l * (*inp).block_size) , (*inp).block_size);
 		}
-	free(outputDataBlock);	
+		free(outputDataBlock);	
 	}
 	pthread_exit(NULL);
 	return NULL;
