@@ -1,0 +1,416 @@
+
+Benchmark Type: RWS 	 Block Size: 1 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 1.191895	Latency : 0.011919
+Experiment number: 2
+
+Total time taken : 1.316612	Latency : 0.013166
+Experiment number: 3
+
+Total time taken : 1.245039	Latency : 0.012450
+
+Benchmark Type: RWS 	 Threads: 1 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.012512 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: 16.587867
+
+Benchmark Type: RWS 	 Block Size: 1 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 0.661398	Latency : 0.006614
+Experiment number: 2
+
+Total time taken : 0.523684	Latency : 0.005237
+Experiment number: 3
+
+Total time taken : 0.624038	Latency : 0.006240
+
+Benchmark Type: RWS 	 Threads: 2 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.006030 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: 59.797333
+
+Benchmark Type: RWS 	 Block Size: 1 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 0.391215	Latency : 0.003912
+Experiment number: 2
+
+Total time taken : 0.436844	Latency : 0.004368
+Experiment number: 3
+
+Total time taken : 0.394306	Latency : 0.003943
+
+Benchmark Type: RWS 	 Threads: 4 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.004075 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: 72.836333
+
+Benchmark Type: RWS 	 Block Size: 1 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 0.292460	Latency : 0.002925
+Experiment number: 2
+
+Total time taken : 0.402541	Latency : 0.004025
+Experiment number: 3
+
+Total time taken : 0.283142	Latency : 0.002831
+
+Benchmark Type: RWS 	 Threads: 8 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.003260 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: 78.263489
+
+Benchmark Type: RWR 	 Block Size: 1 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 4.440904	Latency : 0.044409
+Experiment number: 2
+
+Total time taken : 4.461459	Latency : 0.044615
+Experiment number: 3
+
+Total time taken : 4.477305	Latency : 0.044773
+
+Benchmark Type: RWR 	 Threads: 1 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.044599 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: -197.325956
+
+Benchmark Type: RWR 	 Block Size: 1 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 12.634254	Latency : 0.126343
+Experiment number: 2
+
+Total time taken : 10.764350	Latency : 0.107644
+Experiment number: 3
+
+Total time taken : 13.614572	Latency : 0.136146
+
+Benchmark Type: RWR 	 Threads: 2 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.123377 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: -722.515022
+
+Benchmark Type: RWR 	 Block Size: 1 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 22.390890	Latency : 0.223909
+Experiment number: 2
+
+Total time taken : 22.292358	Latency : 0.222924
+Experiment number: 3
+
+Total time taken : 22.466761	Latency : 0.224668
+
+Benchmark Type: RWR 	 Threads: 4 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.223833 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: -1392.222400
+
+Benchmark Type: RWR 	 Block Size: 1 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 24.713371	Latency : 0.247134
+Experiment number: 2
+
+Total time taken : 24.110365	Latency : 0.241104
+Experiment number: 3
+
+Total time taken : 24.762312	Latency : 0.247623
+
+Benchmark Type: RWR 	 Threads: 8 	 Block Size: 1 	 Experiment RAM Benchmark (Latency): 0.245287 	 Theoretical Latency: 0.015000 	 RAM Benchmark Efficiency: -1535.245511
+
+Benchmark Type: RWS 	 Block Size: 1000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 57.987759	Throughput: 1.724502
+Experiment number: 2
+
+Total time taken : 56.978527	Throughput: 1.755047
+Experiment number: 3
+
+Total time taken : 56.405811	Throughput: 1.772867
+
+Benchmark Type: RWS 	 Threads: 1 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 1.750805 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 2.565057
+
+Benchmark Type: RWS 	 Block Size: 1000000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 60.420483	Throughput: 1.655068
+Experiment number: 2
+
+Total time taken : 56.203793	Throughput: 1.779239
+Experiment number: 3
+
+Total time taken : 56.989983	Throughput: 1.754694
+
+Benchmark Type: RWS 	 Threads: 1 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 1.729667 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 2.534088
+
+Benchmark Type: RWS 	 Block Size: 10000000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 62.720364	Throughput: 1.594378
+Experiment number: 2
+
+Total time taken : 61.602551	Throughput: 1.623309
+Experiment number: 3
+
+Total time taken : 61.331055	Throughput: 1.630495
+
+Benchmark Type: RWS 	 Threads: 1 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 1.616061 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 2.367647
+
+Benchmark Type: RWS 	 Block Size: 1000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 35.822086	Throughput: 2.791574
+Experiment number: 2
+
+Total time taken : 35.059826	Throughput: 2.852267
+Experiment number: 3
+
+Total time taken : 37.532524	Throughput: 2.664356
+
+Benchmark Type: RWS 	 Threads: 2 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 2.769399 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 4.057371
+
+Benchmark Type: RWS 	 Block Size: 1000000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 36.808575	Throughput: 2.716758
+Experiment number: 2
+
+Total time taken : 37.783726	Throughput: 2.646642
+Experiment number: 3
+
+Total time taken : 37.946693	Throughput: 2.635276
+
+Benchmark Type: RWS 	 Threads: 2 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 2.666226 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 3.906214
+
+Benchmark Type: RWS 	 Block Size: 10000000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 42.236443	Throughput: 2.367624
+Experiment number: 2
+
+Total time taken : 41.714943	Throughput: 2.397223
+Experiment number: 3
+
+Total time taken : 40.963017	Throughput: 2.441227
+
+Benchmark Type: RWS 	 Threads: 2 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 2.402024 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 3.519140
+
+Benchmark Type: RWS 	 Block Size: 1000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 22.108774	Throughput: 4.523091
+Experiment number: 2
+
+Total time taken : 21.919634	Throughput: 4.562120
+Experiment number: 3
+
+Total time taken : 21.816246	Throughput: 4.583740
+
+Benchmark Type: RWS 	 Threads: 4 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 4.556317 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 6.675336
+
+Benchmark Type: RWS 	 Block Size: 1000000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 22.582817	Throughput: 4.428146
+Experiment number: 2
+
+Total time taken : 23.421146	Throughput: 4.269646
+Experiment number: 3
+
+Total time taken : 22.978521	Throughput: 4.351890
+
+Benchmark Type: RWS 	 Threads: 4 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 4.349894 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 6.372911
+
+Benchmark Type: RWS 	 Block Size: 10000000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 23.666239	Throughput: 4.225428
+Experiment number: 2
+
+Total time taken : 25.391520	Throughput: 3.938323
+Experiment number: 3
+
+Total time taken : 25.073515	Throughput: 3.988272
+
+Benchmark Type: RWS 	 Threads: 4 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 4.050674 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 5.934532
+
+Benchmark Type: RWS 	 Block Size: 1000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 22.743374	Throughput: 4.396885
+Experiment number: 2
+
+Total time taken : 22.470240	Throughput: 4.450331
+Experiment number: 3
+
+Total time taken : 22.501663	Throughput: 4.444116
+
+Benchmark Type: RWS 	 Threads: 8 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 4.430444 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 6.490922
+
+Benchmark Type: RWS 	 Block Size: 1000000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 23.258608	Throughput: 4.299484
+Experiment number: 2
+
+Total time taken : 23.135948	Throughput: 4.322278
+Experiment number: 3
+
+Total time taken : 23.658390	Throughput: 4.226830
+
+Benchmark Type: RWS 	 Threads: 8 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 4.282864 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 6.274707
+
+Benchmark Type: RWS 	 Block Size: 10000000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 24.452206	Throughput: 4.089610
+Experiment number: 2
+
+Total time taken : 24.320265	Throughput: 4.111797
+Experiment number: 3
+
+Total time taken : 24.008783	Throughput: 4.165142
+
+Benchmark Type: RWS 	 Threads: 8 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 4.122183 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 6.039298
+
+Benchmark Type: RWR 	 Block Size: 1000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 102.093422	Throughput: 0.979495
+Experiment number: 2
+
+Total time taken : 97.049904	Throughput: 1.030398
+Experiment number: 3
+
+Total time taken : 96.652306	Throughput: 1.034636
+
+Benchmark Type: RWR 	 Threads: 1 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 1.014843 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 1.486819
+
+Benchmark Type: RWR 	 Block Size: 1000000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 42.988144	Throughput: 2.326223
+Experiment number: 2
+
+Total time taken : 42.958603	Throughput: 2.327822
+Experiment number: 3
+
+Total time taken : 43.607075	Throughput: 2.293206
+
+Benchmark Type: RWR 	 Threads: 1 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 2.315750 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 3.392743
+
+Benchmark Type: RWR 	 Block Size: 10000000 	 Threads: 1
+Experiment number: 1
+
+Total time taken : 44.288540	Throughput: 2.257920
+Experiment number: 2
+
+Total time taken : 42.135353	Throughput: 2.373304
+Experiment number: 3
+
+Total time taken : 43.124008	Throughput: 2.318894
+
+Benchmark Type: RWR 	 Threads: 1 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 2.316706 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 3.394143
+
+Benchmark Type: RWR 	 Block Size: 1000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 81.250839	Throughput: 1.230757
+Experiment number: 2
+
+Total time taken : 77.907852	Throughput: 1.283568
+Experiment number: 3
+
+Total time taken : 81.563393	Throughput: 1.226040
+
+Benchmark Type: RWR 	 Threads: 2 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 1.246788 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 1.826635
+
+Benchmark Type: RWR 	 Block Size: 1000000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 27.593464	Throughput: 3.624047
+Experiment number: 2
+
+Total time taken : 27.775211	Throughput: 3.600333
+Experiment number: 3
+
+Total time taken : 27.186752	Throughput: 3.678262
+
+Benchmark Type: RWR 	 Threads: 2 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 3.634214 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 5.324387
+
+Benchmark Type: RWR 	 Block Size: 10000000 	 Threads: 2
+Experiment number: 1
+
+Total time taken : 28.069725	Throughput: 3.562557
+Experiment number: 2
+
+Total time taken : 29.825218	Throughput: 3.352867
+Experiment number: 3
+
+Total time taken : 28.636541	Throughput: 3.492042
+
+Benchmark Type: RWR 	 Threads: 2 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 3.469155 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 5.082565
+
+Benchmark Type: RWR 	 Block Size: 1000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 66.284927	Throughput: 1.508639
+Experiment number: 2
+
+Total time taken : 67.832985	Throughput: 1.474209
+Experiment number: 3
+
+Total time taken : 67.348022	Throughput: 1.484825
+
+Benchmark Type: RWR 	 Threads: 4 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 1.489224 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 2.181822
+
+Benchmark Type: RWR 	 Block Size: 1000000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 17.023092	Throughput: 5.874373
+Experiment number: 2
+
+Total time taken : 18.244728	Throughput: 5.481035
+Experiment number: 3
+
+Total time taken : 17.286043	Throughput: 5.785014
+
+Benchmark Type: RWR 	 Threads: 4 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 5.713474 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 8.370655
+
+Benchmark Type: RWR 	 Block Size: 10000000 	 Threads: 4
+Experiment number: 1
+
+Total time taken : 17.137983	Throughput: 5.834992
+Experiment number: 2
+
+Total time taken : 18.305456	Throughput: 5.462852
+Experiment number: 3
+
+Total time taken : 17.505983	Throughput: 5.712333
+
+Benchmark Type: RWR 	 Threads: 4 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 5.670059 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 8.307049
+
+Benchmark Type: RWR 	 Block Size: 1000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 70.127159	Throughput: 1.425981
+Experiment number: 2
+
+Total time taken : 70.325241	Throughput: 1.421965
+Experiment number: 3
+
+Total time taken : 66.213348	Throughput: 1.510270
+
+Benchmark Type: RWR 	 Threads: 8 	 Block Size: 1000 	 Experiment RAM Benchmark (Throughput): 1.452738 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 2.128367
+
+Benchmark Type: RWR 	 Block Size: 1000000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 17.528135	Throughput: 5.705113
+Experiment number: 2
+
+Total time taken : 17.674603	Throughput: 5.657836
+Experiment number: 3
+
+Total time taken : 17.703844	Throughput: 5.648491
+
+Benchmark Type: RWR 	 Threads: 8 	 Block Size: 1000000 	 Experiment RAM Benchmark (Throughput): 5.670480 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 8.307665
+
+Benchmark Type: RWR 	 Block Size: 10000000 	 Threads: 8
+Experiment number: 1
+
+Total time taken : 17.262583	Throughput: 5.792876
+Experiment number: 2
+
+Total time taken : 17.255653	Throughput: 5.795202
+Experiment number: 3
+
+Total time taken : 16.933002	Throughput: 5.905627
+
+Benchmark Type: RWR 	 Threads: 8 	 Block Size: 10000000 	 Experiment RAM Benchmark (Throughput): 5.831235 	 Theoretical Throughput: 68.256000 	 RAM Benchmark Efficiency: 8.543183
