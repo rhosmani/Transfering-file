@@ -169,7 +169,7 @@ int main(int argc, char *argv[]) {
 	{
 		avg_throughput /= EXPERIMENT_FREQUENCY;
 		MyRAMBench_throughput = avg_throughput;
-		theoretical_throughput = (((2299.998 * 2 * 64 * 2) / 8) / 1000);
+		theoretical_throughput = (((2133 * 2 * 64 * 2) / 8) / 1000);
 		MyRAMBenchEfficiency = (MyRAMBench_throughput / theoretical_throughput) * 100;
 		printf("\nBenchmark Type: %s \t Threads: %d \t Block Size: %ld \t Experiment RAM Benchmark (Throughput): %f \t Theoretical Throughput: %f \t RAM Benchmark Efficiency: %f\n", (*inp).benchmarkType, (*inp).threadCount, (*inp).block_size, MyRAMBench_throughput, theoretical_throughput, MyRAMBenchEfficiency);
 
